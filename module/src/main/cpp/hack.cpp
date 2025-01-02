@@ -5,6 +5,7 @@
 #include "hack.h"
 #include "il2cpp_dump.h"
 #include "log.h"
+#include "module_name.h"
 #include "xdl.h"
 #include <cstring>
 #include <cstdio>
@@ -20,7 +21,7 @@
 void hack_start(const char *game_data_dir) {
     bool load = false;
     for (int i = 0; i < 10; i++) {
-        void *handle = xdl_open("libil2cpp.so", 0);
+        void *handle = xdl_open(module_name, 0);
         if (handle) {
             load = true;
             il2cpp_api_init(handle);
